@@ -1,11 +1,20 @@
-# Welcome to [Slidev](https://github.com/slidevjs/slidev)!
+# Не описуй API двічі
 
-To start the slide show:
+Презентація про генерацію фронтового API-клієнта з OpenAPI-специфікації бекенду.
+Зібрана на [Slidev](https://github.com/slidevjs/slidev).
+
+## 🔗 Дивитися онлайн
+
+**https://b-vadym.github.io/api-client-generation/**
+
+Деплоїться автоматично через GitHub Actions при кожному пуші в `main`.
+
+## Локальний запуск
 
 - `pnpm install`
 - `pnpm run dev`
-- visit <http://localhost:3030>
+- відкрити <http://localhost:3030>
 
-Edit the [slides.md](./slides.md) to see the changes.
+Редагуй [slides.md](./slides.md), щоб побачити зміни.
 
-Learn more about Slidev at the [documentation](https://sli.dev/).
+Докладніше про Slidev — у [документації](https://sli.dev/).
