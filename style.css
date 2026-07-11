@@ -1,0 +1,144 @@
+/* ============================================================
+   "Не описуй API двічі" — global design system
+   Dark, technical, amber accent (перегукується зі стікерами)
+   ============================================================ */
+
+:root {
+  --bg: #0b0f17;
+  --bg-soft: #10151f;
+  --panel: rgba(255, 255, 255, 0.035);
+  --panel-border: rgba(255, 255, 255, 0.09);
+  --text: #e7eaf0;
+  --muted: #9aa3b5;
+  --amber: #f0b429;
+  --amber-bright: #f9d34e;
+  --amber-deep: #e8a800;
+  --red: #f87171;
+  --green: #4ade80;
+  --slidev-theme-primary: #f0b429;
+}
+
+/* ---------- Base canvas: glow + subtle grid ---------- */
+.slidev-layout {
+  --uno: px-16 py-12;
+  background-color: var(--bg);
+  color: var(--text);
+  background-image:
+    radial-gradient(60rem 40rem at 12% -10%, rgba(240, 180, 41, 0.10), transparent 60%),
+    radial-gradient(50rem 35rem at 105% 110%, rgba(240, 180, 41, 0.06), transparent 55%),
+    linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 44px 44px, 44px 44px;
+}
+
+/* ---------- Typography ---------- */
+.slidev-layout h1 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--text);
+}
+
+/* accent bar on left-aligned content slides */
+.slidev-layout:not(.text-center) h1 {
+  position: relative;
+  padding-left: 0.85rem;
+  margin-bottom: 1.1rem;
+}
+.slidev-layout:not(.text-center) h1::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.12em;
+  bottom: 0.12em;
+  width: 5px;
+  border-radius: 3px;
+  background: linear-gradient(180deg, var(--amber-bright), var(--amber-deep));
+  box-shadow: 0 0 18px rgba(240, 180, 41, 0.55);
+}
+
+/* centered slides: gradient title */
+.slidev-layout.text-center h1 {
+  background-image: linear-gradient(92deg, var(--amber-bright) 0%, var(--amber) 45%, var(--amber-deep) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.slidev-layout h3 {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.slidev-layout a { color: var(--amber); }
+.slidev-layout strong, .slidev-layout b { color: var(--amber-bright); font-weight: 600; }
+
+/* ---------- Kicker (small label above a heading) ---------- */
+.kicker {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--amber);
+  opacity: 0.9;
+  margin-bottom: 0.4rem;
+}
+
+/* ---------- Pill ---------- */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(240, 180, 41, 0.35);
+  background: rgba(240, 180, 41, 0.08);
+  color: var(--amber-bright);
+  font-size: 0.9rem;
+}
+
+/* ---------- Cards ---------- */
+.card {
+  padding: 1.1rem 1.25rem;
+  border-radius: 0.85rem;
+  border: 1px solid var(--panel-border);
+  background: var(--panel);
+  backdrop-filter: blur(2px);
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+.card:hover { border-color: rgba(240, 180, 41, 0.35); }
+.card--amber { border-color: rgba(240, 180, 41, 0.30); background: rgba(240, 180, 41, 0.06); }
+.card--red   { border-color: rgba(248, 113, 113, 0.35); background: rgba(248, 113, 113, 0.06); }
+.card--green { border-color: rgba(74, 222, 128, 0.35); background: rgba(74, 222, 128, 0.06); }
+.card__label { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.35rem; }
+
+/* ---------- Code blocks: framed panels ---------- */
+.slidev-layout .slidev-code-wrapper,
+.slidev-layout pre.slidev-code,
+.slidev-layout .shiki {
+  border-radius: 0.75rem !important;
+}
+.slidev-layout pre.slidev-code {
+  border: 1px solid var(--panel-border);
+  padding: 1rem 1.15rem !important;
+  box-shadow: 0 18px 45px -25px rgba(0, 0, 0, 0.8);
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+/* ---------- Blockquote-style callout ---------- */
+.callout {
+  border-left: 4px solid var(--amber);
+  padding-left: 1rem;
+  color: var(--amber-bright);
+  font-style: italic;
+}
+
+/* ---------- Footer slide number ---------- */
+.slidev-layout::after {
+  content: '';
+}
+
+/* v-mark tuning to sit on dark bg */
+.slidev-vclick-target { transition: opacity 0.3s ease; }
